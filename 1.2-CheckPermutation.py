@@ -67,7 +67,7 @@ class HashTable:
 def checkPermutation(word1hash, word2hash):
     for x, y in zip(word1hash, word2hash):
         print(x, y, x == y)
-        if (x != y):
+        if (sorted(x) != sorted(y)):
             return False
     return True
 
@@ -81,10 +81,14 @@ if __name__ == "__main__":
     
     hash1 = HashTable(word1)
     for i, w in enumerate(word1):
-        hash1.add(w, i)
+        hash1.add(w, w)
 
     hash2 = HashTable(word2)
     for i, w in enumerate(word2):
-        hash2.add(w, i)
+        hash2.add(w, w)
+
+    hash1.show()
+    print("*******")
+    hash2.show()
 
     print(checkPermutation(hash1, hash2))
