@@ -71,6 +71,12 @@ def checkPermutation(word1hash, word2hash):
             return False
     return True
 
+@timing
+def checkPermutationSimple(word1, word2):
+    if sorted(word1) == sorted(word2):
+        return True
+    return False
+
 if __name__ == "__main__":
     
     word1 = input()
@@ -92,3 +98,5 @@ if __name__ == "__main__":
     hash2.show()
 
     print(checkPermutation(hash1, hash2))
+
+    print(checkPermutationSimple(hash1, hash2))
